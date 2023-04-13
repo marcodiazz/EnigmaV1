@@ -97,8 +97,9 @@
             <input bind:value={attemp[numAttemps]} id="attemp" maxlength="5" type="number">
             <button id="sub" on:click|preventDefault={compareNumbers}>Submit</button>
           </form>
-          <p>coded with 🤍 by Marco Díaz</p>
+          <!-- <p>coded with 🤍 by Marco Díaz</p> -->
         </div>
+
         <!-- <p>{target}</p> -->
         {:else if (!win &&numAttemps >= 5)}
           <div class="center-column menu" id="loseMenu">
@@ -120,6 +121,9 @@
         </div>
       </div>
       {/if}
+    </div>
+    <div id="footer">
+      <p>coded with 🤍 by Marco Díaz</p>
     </div>
   </main>
   
@@ -148,7 +152,7 @@
   }
   .gameScreen{
     /* margin-top: 5rem; */
-    height: 80%;
+    height: 75%;
     
   }
   
@@ -226,5 +230,12 @@
       background: #2b2b2b;
       border-radius: 20px;
       padding-inline: 2rem;
+    }
+
+    #footer{
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      height: 5%;
     }
   </style>
