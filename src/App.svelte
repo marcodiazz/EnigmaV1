@@ -94,7 +94,7 @@
         <div class="input">
           <form class="center-column">
             <label for="attemp">Insert a number:</label>
-            <input bind:value={attemp[numAttemps]} id="attemp" maxlength="5" type="number">
+            <input bind:value={attemp[numAttemps]} id="attemp" maxlength="5">
             <button id="sub" on:click|preventDefault={compareNumbers}>Submit</button>
           </form>
           <!-- <p>coded with 🤍 by Marco Díaz</p> -->
