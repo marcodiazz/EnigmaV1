@@ -72,7 +72,7 @@
     </div>
     
     <div class="gameScreen center-column">
-      {#if !win && numAttemps < 6}
+      
         <Attemp attemp={attemp[0]} contBelongs={contBelongs[0]} contCorrect={contCorrect[0]}/>
         {#if numAttemps >=1}
         <Attemp attemp={attemp[1]} contBelongs={contBelongs[1]} contCorrect={contCorrect[1]}/>
@@ -89,36 +89,43 @@
         {#if numAttemps >=5}
         <Attemp attemp={attemp[5]} contBelongs={contBelongs[5]} contCorrect={contCorrect[5]}/>
         {/if}
-  
-        <div class="input">
-          <form class="center-column" autocomplete="off">
-            <label for="attemp">Insert a number:</label>
-            <input bind:value={attemp[numAttemps]} id="attemp" maxlength="5">
-            <button id="sub" on:click|preventDefault={compareNumbers}>Submit</button>
-          </form>
-        </div>
 
-        <!-- <p>{target}</p> -->
-        {:else if (!win &&numAttemps >= 5)}
-          <div class="center-column menu" id="loseMenu">
-            <h1 id="lose">Sorry You Lost :( </h1>
-            <h2>The code was:</h2>
-            <div class="code-container">
-              <h1>{target[0] + ' ' + target[1] + ' ' + target[2] + ' ' + target[3] + ' ' + target[4]}</h1>
-            </div>
+        {#if !win && numAttemps < 5}
+          <div class="input">
+            <form class="center-column" autocomplete="off">
+              <label for="attemp">Insert a number:</label>
+              <input bind:value={attemp[numAttemps]} id="attemp" maxlength="5">
+              <button id="sub" on:click|preventDefault={compareNumbers}>Submit</button>
+            </form>
           </div>
-      {/if}
+        {/if}
+      
+        <!-- <p>{target}</p> -->
+      <!-- {:else if (!win && numAttemps >= 5)} -->
+    {#if (!win && numAttemps >= 5)}
+          <div class="top-column menu" id="loseMenu">
+            <h1 id="lose">Sorry You Lost :( </h1>
+            
+            <div>
+              <h2>The code was:</h2>
+              <div class="code-container">
+                <h1>{target[0] + ' ' + target[1] + ' ' + target[2] + ' ' + target[3] + ' ' + target[4]}</h1>
+              </div>
+            </div>
+
+          </div>
+    {/if}
   
-      {#if win}
+    {#if win}
   
-      <div class="center-column menu" id="winMenu">
+      <div class="top-column menu" id="winMenu">
         <h1 id="congratulations">Congratulations You Won!</h1>
         <h2>The code was:</h2>
         <div class="code-container">
           <h1>{target[0] + ' ' + target[1] + ' ' + target[2] + ' ' + target[3] + ' ' + target[4]}</h1>
         </div>
       </div>
-      {/if}
+    {/if}
     </div>
     <div id="footer">
       <p>coded with 🤍 by Marco Díaz</p>
@@ -161,6 +168,13 @@
       justify-content: center;
       align-items: center;
     }
+
+  .top-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
     .input{
       margin-top: 5rem;
     }
@@ -206,9 +220,14 @@
   }
   
     .menu{
-      width: 40vw;
+      width: 50vw;
+      /* height: 2vh; */
       border-radius: 20px;
-      padding-block: 3rem;
+      padding-block: 0rem;
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       /* padding-inline: 4rem; */
     }
     #winMenu{
@@ -217,19 +236,27 @@
     }
   
     #loseMenu{
-      /* background-color: #731c1c; */
+      /* background-color: #731c1c2c; */
       background: linear-gradient(156deg, rgba(179,18,23,1) 0%, rgba(229,45,39,1) 100%);
+    }
+
+    .menu h2, h1{
+      margin: 0.5rem;
     }
   
   
     #congratulations{
       color: white;
+      /* font-size: 1rem; */
     }
   
     .code-container{
-      background: #2b2b2b;
+      background: #2b2b2b50;
       border-radius: 20px;
       padding-inline: 2rem;
+      font-size: 1rem;
+      /* margin: 0; */
+
     }
 
     #footer{
