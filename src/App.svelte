@@ -63,7 +63,6 @@
   startArray();
   generateNumber();
   
-  
   </script>
   
   
@@ -92,12 +91,11 @@
         {/if}
   
         <div class="input">
-          <form class="center-column">
+          <form class="center-column" autocomplete="off">
             <label for="attemp">Insert a number:</label>
             <input bind:value={attemp[numAttemps]} id="attemp" maxlength="5">
             <button id="sub" on:click|preventDefault={compareNumbers}>Submit</button>
           </form>
-          <!-- <p>coded with 🤍 by Marco Díaz</p> -->
         </div>
 
         <!-- <p>{target}</p> -->
@@ -141,6 +139,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 15%;
   }
   
   #title{
@@ -195,6 +194,7 @@
     background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
+    color: white;
   }
   button:hover {
     background: #646cff;
@@ -235,7 +235,16 @@
     #footer{
       display: flex;
       justify-content: center;
-      align-items: end;
-      height: 5%;
+      align-items: center;
+      height: 8%;
+    }
+
+    @media (prefers-color-scheme: light) {
+      #title{
+        color: #1a1a1a;
+      }
+      #footer{
+        color: #646cff;
+      }
     }
   </style>

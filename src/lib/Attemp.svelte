@@ -104,5 +104,11 @@
       background: linear-gradient(156deg, rgba(17,153,142,1) 0%, rgba(56,239,125,1) 100%);
     }
     
-    
+    @media (prefers-color-scheme: light) {
+    .numbercell{
+      color: white;
+      background: #262626;
+    }
+
+    }
     </style>
