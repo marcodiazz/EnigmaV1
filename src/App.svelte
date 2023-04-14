@@ -102,7 +102,7 @@
       
         <!-- <p>{target}</p> -->
       <!-- {:else if (!win && numAttemps >= 5)} -->
-    {#if (!win && numAttemps >= 5)}
+    {#if (!win && numAttemps > 5)}
           <div class="top-column menu" id="loseMenu">
             <h1 id="lose">Sorry You Lost :( </h1>
             
