@@ -90,7 +90,7 @@
         <Attemp attemp={attemp[5]} contBelongs={contBelongs[5]} contCorrect={contCorrect[5]}/>
         {/if}
 
-        {#if !win && numAttemps < 5}
+        {#if !win && numAttemps <= 5}
           <div class="input">
             <form class="center-column" autocomplete="off">
               <label for="attemp">Insert a number:</label>
@@ -271,7 +271,7 @@
         color: #1a1a1a;
       }
       #footer{
-        color: #646cff;
+        color: #1a1a1a;
       }
     }
   </style>
